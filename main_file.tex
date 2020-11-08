@@ -1,0 +1,276 @@
+\documentclass[11pt]{article}
+%\usepackage{epsfig,psfig,amssymb,amsmath,times}
+\usepackage{amssymb,amsmath,times}
+\usepackage[dvipsnames,table]{xcolor}
+%\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+%\usepackage{floatflt,wrapfig}
+\usepackage{fancyhdr}
+%\usepackage{color}
+\usepackage{tabularx}
+\usepackage[nohyperlinks,printonlyused]{acronym}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{url}
+\usepackage[plainpages=true,pdfpagelabels,colorlinks=true,citecolor=Violet]{hyperref}
+%\usepackage{hyperref}
+
+%% [TJP] Compact itemize lists
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+%% [TJP] Format for citation numbers
+\renewcommand{\citenumfont}[1]{\textit{#1}}
+
+%% [TJP] Customize table and figure captions
+\usepackage[font={small},margin=0em]{caption}
+
+%% [TJP] Customize section and subsection title format
+\usepackage[small,compact]{titlesec}
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries\color{MidnightBlue}\filcenter}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\sffamily\large\bfseries\color{MidnightBlue}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\sffamily\bfseries\itshape\color{MidnightBlue}}
+  {\thesubsubsection}{0.5em}{}
+\titleformat{\paragraph}[runin]
+  {\normalfont\sffamily\bfseries\color{MidnightBlue}}
+  {\theparagraph}{}{$\bullet$\hskip 0.5em}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+\definecolor{MidnightBlue}{rgb}{0.1, 0.1, 0.44}
+%\usepackage[nolist]{acronym}
+
+
+%Revision History
+
+% Feb. 2, 2014: Taken from EBEX6k 2014 to be used as template
+
+
+% define formatting
+
+%\pagestyle{empty}
+%\parindent=0pt
+%\topmargin=-0.2in \headheight=0pt \headsep=0pt \textheight=9.875in
+%\textwidth=7in \oddsidemargin=-0.375in
+\topmargin=0.in \headheight=0in \headsep=-0.1in \textheight=9.2in
+\textwidth=6.5in \oddsidemargin=0in
+% define spacings
+\def\p{\smallskip}
+\def\sp{\vspace{0.15in}}
+\def\spa{\vspace{0.3in}}
+\def\spaa{\vspace{0.5in}}
+\def\spaaa{\vspace{0.7in}}
+
+
+% define shorthands for latex commands
+\def\bei{\begin{itemize}}
+\def\eei{\end{itemize}}
+
+% define commonly used symbols
+\def\et{{\it et al.\ }}
+\def\degr{$^{\circ}$}
+\def\arcsec{$^{\prime\prime}$}
+\def\pp{\pi}
+
+% define various names
+\def\max{MAX}
+\def\maxima{MAXIMA}
+\def\boom{BOOMERanG}
+\def\arch{Archeops}
+\def\maxboom{\maxima/\boom}
+\def\planck{Planck}
+\def\combat{COMBAT}
+\def\cmb{CMB}
+\def\cmba{CMBA}
+\def\tic{Ticra}
+\def\codef{CODE5}
+\def\forecast{FORECAST}
+\def\maxipol{MAXIPOL}
+\def\hwp{HWP}
+\def\ahwp{AHWP}
+\def\wmap{WMAP}
+\def\igb{IGB}
+\def\apex{APEX}
+\def\ebex{EBEX}
+\def\squid{SQUID}
+\def\ld{LD}
+\def\ldii{LD-II}
+\def\blast{BLAST}
+\def\pb{\sc polarbear}
+\def\spttg{SPT3G}
+\def\ebextw{EBEX2012}
+\def\ebextenk{EBEX10K}
+\def\dfmux{DFMux}
+\def\xsixf{$\times$64}
+\def\xones{$\times$16}
+
+%define physics and cosmological notations
+\def\het{$^{3}$He}
+\def\hef{$^{4}$He}
+\def\lnt{lN$_{2}$}
+\def\wn{cm$^{-1}$}
+\def\omeg{$\Omega$}
+\def\omegb{$\Omega_{b}$}
+\def\hubble{$H_{0}$}
+\def\lamb{$\Lambda$}
+\def\cl{$C_{\ell}$}
+\def\micron{$\mu$m}
+\def\microk{$\mu{\mbox{K}}$}
+\def\microkrtsec{$\mu{\mbox{K}}\sqrt{\mbox{sec}}$}
+\def\microkprthz{$\mu{\mbox{K}}/\sqrt{\mbox{Hz}}$}
+\def\wattrthz{${\mbox{Watt}}\sqrt{\mbox{Hz}}$}
+\def\voltprthz{${\mbox{Volt}}/\sqrt{\mbox{Hz}}$}
+\def\sintheta{\mbox{$\sin\theta$}}
+\def\bceti{$\beta$-ceti}
+\def\etad{$\eta$-draconis}
+\def\ruo2{RuO$_{2}$}
+\def\tdot{$\dot{\theta}$}
+\def\taub{$\tau_{b}$}
+\def\degsq{deg$^2$}
+
+% define polarization symbols parameters
+\def\It{$I_{t}$}  
+\def\sq{$Q$}
+\def\su{$U$}
+\def\dsu{$\Delta U$}
+\def\dsq{$\Delta Q$}
+\def\TT{$C_l^{\rm TT}$}
+\def\TG{$C_l^{\rm TG}$}
+\def\GG{$C_l^{\rm GG}$}
+\def\CC{$C_l^{\rm CC}$}
+
+
+% Jaffe's definitions
+\def\mathrelfun#1#2{\lower3.6pt\vbox{\baselineskip0pt\lineskip.9pt
+  \ialign{$\mathsurround=0pt#1\hfil##\hfil$\crcr#2\crcr\sim\crcr}}}
+\def\simlt{\mathrel{\mathpalette\mathrelfun <}}
+\def\simgt{\mathrel{\mathpalette\mathrelfun >}}
+
+% start kamionkowski definitions
+\def\hatx{{\bf \hat n}}
+\def\hatnprime{{\bf \hat n'}}
+\def\hatnone{{\bf \hat n}_1}
+\def\hatntwo{{\bf \hat n}_2}
+\def\hatni{{\bf \hat n}_i}
+\def\hatnj{{\bf \hat n}_j}
+\def\vecx{{\bf x}}
+\def\veck{{\bf k}}
+\def\hatx{{\bf \hat x}}
+\def\hatk{{\bf \hat k}}
+\def\hatz{{\bf \hat z}}
+\def\VEV#1{{\left\langle #1 \right\rangle}}
+\def\cP{{\cal P}}
+\def\noise{{\rm noise}}
+\def\pix{{\rm pix}}
+\def\map{{\rm map}}
+\long\def\comment#1{}
+\def\mmmin{mm$^{3}$/min}
+\def\abrate{$\dot{V}_{rem}$}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand\PRL{{\it Phys.~Rev.~Lett.}}
+\newcommand\prl{{\it Phys.~Rev.~Lett.}}
+\newcommand\ApJ{{\it Ap.~J.}}
+\newcommand\apj{{\it Ap.~J.}}
+\newcommand\ApJL{{\it Ap.~J.~Lett.}}
+\newcommand\apjl{{\it Ap.~J.~Lett.}}
+\newcommand\ApJS{{\it Ap.~J.~Suppl.}}
+\newcommand\apjs{{\it Ap.~J.~Suppl.}}
+\newcommand\PR{{\it Phys.~Rev.}}
+\newcommand\PL{{\it Phys.~Lett.}}
+\newcommand\MNRAS{{\it MNRAS}}
+\newcommand\mnras{{\it MNRAS}}
+\newcommand\MNRASL{{\it MNRAS\ Lett.}}
+\newcommand\AnA{{\it Astron.~Astrophys.}}
+\newcommand\BAAS{{\it Bull.~Am.~Astron.~Soc.}}
+\newcommand\NP{{\it Nucl.~Phys.}}
+\newcommand\RMP{{\it Rev.~Mod.~Phys.}}
+\newcommand\ARAA{{\it ARAA}}
+\newcommand\araa{{\it ARAA}}
+\newcommand\prd{{\it Phys.~Rev.~D.}}
+\newcommand\plb{{\it Phys.~Lett.~B.}}
+\newcommand\ao{{\it Appl.~Optics}}
+\newcommand\aap{{\it Astron.~Astrophys.}}
+\newcommand\aaps{{\it Astron.~Astrophys.~Suppl.}}
+\newcommand\pasp{{\it Proc.~Ast.~Soc.~Pac.}}
+\newcommand\josa{{\it J.~Opt.~Soc.~Am.}}
+\newcommand\phr{{\it Phys. Reports}}
+\newcommand\aj{{\it Astronomical Journal}}
+\newcommand\apis{{\it The Astrophysical Journal Supplement}}
+\newcommand\physrep{{\it Phys. Rep.}}
+\newcommand\procspie{{\it Proceedings of the SPIE}}
+\newcommand\jcap{{\it Journal of Cosmology and Astroparticle Physics}}
+
+\newcommand{\captiontext}{\small \setlength{\baselineskip}{0.90\baselineskip}}
+
+\newcommand{\taus}{$\tau$S}
+
+\newcommand{\comred}[1]{\textcolor{red}{#1}}
+\newcommand{\comor}[1]{\textcolor{orange}{#1}}
+\newcommand{\comb}[1]{\textcolor{blue}{#1}}
+\newcommand{\sob}[1]{\comb{\sout{#1}}}
+\newcommand{\sor}[1]{\comred{\sout{#1}}}
+\newcommand{\soor}[1]{\comor{\sout{#1}}}
+
+% end kamionkowski definitions
+
+% Let's you define a command for both text and math mode. 
+\newcommand{\wisk}[1]{{\ifmmode{#1}\else{$#1$}\fi}}
+
+\setlength{\floatsep}{0.5\floatsep}
+\setlength{\textfloatsep}{0.5\textfloatsep}
+\setlength{\intextsep}{0.5\intextsep}
+\setlength{\floatsep}{0.5\floatsep}
+\setlength{\dblfloatsep}{0.5\dblfloatsep}
+\setlength{\dbltextfloatsep}{0.5\dbltextfloatsep}
+
+\begin{document}
+
+\bibliographystyle{unsrtnat}
+
+% should be able to go to 0.89\baselineskip and have 5.97 lines / inch.
+\setlength{\baselineskip}{0.91\baselineskip}   % measured 5.8 lines / inch.
+%\setlength{\baselineskip}{0.96\baselineskip}  % measured 5.5 lines / inch.
+
+%\setlength{\baselineskip}{0.90\baselineskip}% should be 5.9 lines / inch. 
+                                             % measuring give 6.18 lines / inch.
+\setlength{\parskip}{1.\parskip}
+
+\parindent = 15pt
+%\tableofcontents
+
+%%   Give fraction of man year not budgeted !!
+%%   Add data analysis to the budget !!
+%%  Highlight the free work in the proposal
+
+\setcounter{figure}{0}
+
+\setcounter{page}{1}
+
+\section*{Project Description}
+Welcome to \LaTeX~and GitHub!
+
+\newpage
+\input{section.tex}
+
+
+\bibliography{bibfile}
+
+
+
+\end{document}
+
+
+
+
